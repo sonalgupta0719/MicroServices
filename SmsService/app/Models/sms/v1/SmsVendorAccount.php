@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class SmsVendorAccounts extends Model
+class SmsVendorAccount extends Model
 {
     use HasFactory;
 
@@ -15,7 +15,7 @@ class SmsVendorAccounts extends Model
      */
     public function sms_vendor()
     {
-        return $this->belongsTo(SmsVendors::class);
+        return $this->belongsTo(SmsVendor::class);
     }
 
     /**
@@ -23,7 +23,7 @@ class SmsVendorAccounts extends Model
      */
     public function sms_template_account()
     {
-        return $this->hasMany(SmsTemplateAccounts::class,'vendor_account_id');
+        return $this->hasMany(SmsTemplateAccount::class,'vendor_account_id');
     }
     
     /**
@@ -31,6 +31,6 @@ class SmsVendorAccounts extends Model
      */
     public function sms_log()
     {
-        return $this->hasMany(SmsLogs::class,'vendor_account_id');
+        return $this->hasMany(SmsLog::class,'vendor_account_id');
     }
 }

@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Organizations extends Model
+class Organization extends Model
 {
     use HasFactory;
 
@@ -23,7 +23,7 @@ class Organizations extends Model
      */
     public function product()
     {
-        return $this->hasMany(Products::class,'organization_id');
+        return $this->hasMany(Product::class,'organization_id');
     }
 
     /**
@@ -31,7 +31,7 @@ class Organizations extends Model
      */
     public function user()
     {
-        return $this->hasMany(Users::class,'organization_id');
+        return $this->hasMany(User::class,'organization_id');
     }
     
     /**
@@ -39,7 +39,7 @@ class Organizations extends Model
      */
     public function sms_template()
     {
-        return $this->hasMany(SmsTemplates::class);
+        return $this->hasMany(SmsTemplate::class);
     }
     
     /**
@@ -47,7 +47,7 @@ class Organizations extends Model
      */
     public function sms_sender()
     {
-        return $this->hasMany(SmsSenders::class);
+        return $this->hasMany(SmsSender::class);
     }
     
     /**
@@ -55,6 +55,6 @@ class Organizations extends Model
      */
     public function sms_request()
     {
-        return $this->hasMany(SmsRequests::class);
+        return $this->hasMany(SmsRequest::class);
     }
 }

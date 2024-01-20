@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Products extends Model
+class Product extends Model
 {
     use HasFactory;
 
@@ -15,7 +15,7 @@ class Products extends Model
      */
     public function organization()
     {
-        return $this->belongsTo(Organizations::class);
+        return $this->belongsTo(Organization::class);
     }
 
     /**
@@ -23,7 +23,7 @@ class Products extends Model
      */
     public function user()
     {
-        return $this->hasMany(Users::class,'product_id');
+        return $this->hasMany(User::class,'product_id');
     }
     
     /**
@@ -31,7 +31,7 @@ class Products extends Model
      */
     public function sms_template()
     {
-        return $this->hasMany(SmsTemplates::class,'product_id');
+        return $this->hasMany(SmsTemplate::class,'product_id');
     }
     
     /**
@@ -39,7 +39,7 @@ class Products extends Model
      */
     public function sms_deadletter()
     {
-        return $this->hasMany(SmsDeadletters::class,'product_id');
+        return $this->hasMany(SmsDeadletter::class,'product_id');
     }
     
     /**
@@ -47,6 +47,6 @@ class Products extends Model
      */
     public function sms_request()
     {
-        return $this->hasMany(SmsRequests::class,'product_id');
+        return $this->hasMany(SmsRequest::class,'product_id');
     }
 }

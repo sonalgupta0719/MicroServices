@@ -5,7 +5,7 @@ namespace App\Models\sms\v1;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class SmsTemplateAccounts extends Model
+class SmsTemplateAccount extends Model
 {
     use HasFactory;
 
@@ -14,7 +14,7 @@ class SmsTemplateAccounts extends Model
      */
     public function sms_vendor_account()
     {
-        return $this->belongsTo(SmsVendorAccounts::class);
+        return $this->belongsTo(SmsVendorAccount::class);
     }
 
     /**
@@ -22,6 +22,6 @@ class SmsTemplateAccounts extends Model
      */
     public function sms_sender()
     {
-        return $this->belongsTo(SmsSenders::class);
+        return $this->belongsTo(SmsSender::class);
     }
 }

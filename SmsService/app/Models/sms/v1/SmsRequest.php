@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class SmsTemplates extends Model
+class SmsRequest extends Model
 {
     use HasFactory;
 
@@ -15,7 +15,7 @@ class SmsTemplates extends Model
      */
     public function organization()
     {
-        return $this->belongsTo(Organizations::class);
+        return $this->belongsTo(Organization::class);
     }
 
     /**
@@ -23,22 +23,22 @@ class SmsTemplates extends Model
      */
     public function product()
     {
-        return $this->belongsTo(Products::class);
-    }
-
-    /**
-     * one-to-many relationship with SmsRequests.
-     */
-    public function sms_request()
-    {
-        return $this->hasMany(SmsRequests::class,'template_id');
+        return $this->belongsTo(Product::class);
     }
     
+    /**
+     * many-to-one relationship with SmsTemplates.
+     */
+    public function sms_template()
+    {
+        return $this->belongsTo(SmsTemplate::class);
+    }
+
     /**
      * one-to-many relationship with SmsLogs.
      */
     public function sms_log()
     {
-        return $this->hasMany(SmsLogs::class,'template_id');
+        return $this->hasMany(SmsLog::class,'request_id');
     }
 }

@@ -5,7 +5,7 @@ namespace App\Models\sms\v1;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class SmsDeadletters extends Model
+class SmsDeadletter extends Model
 {
     use HasFactory;
 
@@ -14,6 +14,6 @@ class SmsDeadletters extends Model
      */
     public function product()
     {
-        return $this->belongsTo(Products::class);
+        return $this->belongsTo(Product::class);
     }
 }

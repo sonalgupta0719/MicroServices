@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class SmsSenders extends Model
+class SmsSender extends Model
 {
     use HasFactory;
 
@@ -15,7 +15,7 @@ class SmsSenders extends Model
      */
     public function organization()
     {
-        return $this->belongsTo(Organizations::class);
+        return $this->belongsTo(Organization::class);
     }
 
     /**
@@ -23,7 +23,7 @@ class SmsSenders extends Model
      */
     public function sms_template_account()
     {
-        return $this->hasMany(SmsTemplateAccounts::class,'sender_id');
+        return $this->hasMany(SmsTemplateAccount::class,'sender_id');
     }
 
 }

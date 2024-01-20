@@ -5,7 +5,7 @@ namespace App\Models\sms\v1;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class SmsVendorResponses extends Model
+class SmsVendorResponse extends Model
 {
     use HasFactory;
 
@@ -14,6 +14,6 @@ class SmsVendorResponses extends Model
      */
     public function sms_vendor()
     {
-        return $this->belongsTo(SmsVendors::class);
+        return $this->belongsTo(SmsVendor::class);
     }
 }
