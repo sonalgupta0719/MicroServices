@@ -17,11 +17,9 @@ class CreateUsersTable extends Migration
 
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('name');
-            // $table->unsignedBigInteger('organization_id');
+            $table->string('name');
             $table->bigInteger('organization_id')->unsigned();
             $table->foreign('organization_id')->references('id')->on('organizations');
-            // $table->unsignedBigInteger('product_id');
             $table->bigInteger('product_id')->unsigned();
             $table->foreign('product_id')->references('id')->on('products');
         });

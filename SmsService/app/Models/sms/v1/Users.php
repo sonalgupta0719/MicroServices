@@ -9,12 +9,18 @@ class Users extends Model
 {
     use HasFactory;
 
-    public function Organizations()
+    /**
+     * many-to-one relationship with Organizations.
+     */
+    public function organization()
     {
         return $this->belongsTo(Organizations::class);
     }
 
-    public function Products()
+    /**
+     * many-to-one relationship with Products.
+     */
+    public function product()
     {
         return $this->belongsTo(Products::class);
     }

@@ -10,12 +10,18 @@ class SmsSenders extends Model
 {
     use HasFactory;
 
-    public function Organizations()
+    /**
+     * many-to-one relationship with Organizations.
+     */
+    public function organization()
     {
         return $this->belongsTo(Organizations::class);
     }
 
-    public function SmsSendersSmsTemplateAccounts(): HasMany
+    /**
+     * one-to-many relationship with SmsTemplateAccounts.
+     */
+    public function sms_template_account()
     {
         return $this->hasMany(SmsTemplateAccounts::class,'sender_id');
     }

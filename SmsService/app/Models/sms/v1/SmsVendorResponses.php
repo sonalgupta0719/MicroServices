@@ -9,7 +9,10 @@ class SmsVendorResponses extends Model
 {
     use HasFactory;
 
-    public function SmsVendorResponses()
+    /**
+     * many-to-one relationship with SmsVendors.
+     */
+    public function sms_vendor()
     {
         return $this->belongsTo(SmsVendors::class);
     }

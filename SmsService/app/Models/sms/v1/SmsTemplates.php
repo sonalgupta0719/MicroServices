@@ -10,22 +10,34 @@ class SmsTemplates extends Model
 {
     use HasFactory;
 
-    public function Organizations()
+    /**
+     * many-to-one relationship with Organizations.
+     */
+    public function organization()
     {
         return $this->belongsTo(Organizations::class);
     }
 
-    public function Products()
+    /**
+     * many-to-one relationship with Products.
+     */
+    public function product()
     {
         return $this->belongsTo(Products::class);
     }
 
-    public function SmsTemplatesSmsRequests(): HasMany
+    /**
+     * one-to-many relationship with SmsRequests.
+     */
+    public function sms_request()
     {
         return $this->hasMany(SmsRequests::class,'template_id');
     }
     
-    public function SmsTemplatesSmsLogs(): HasMany
+    /**
+     * one-to-many relationship with SmsLogs.
+     */
+    public function sms_log()
     {
         return $this->hasMany(SmsLogs::class,'template_id');
     }

@@ -9,12 +9,18 @@ class SmsTemplateAccounts extends Model
 {
     use HasFactory;
 
-    public function SmsVendorAccounts()
+    /**
+     * many-to-one relationship with SmsVendorAccounts.
+     */
+    public function sms_vendor_account()
     {
         return $this->belongsTo(SmsVendorAccounts::class);
     }
 
-    public function SmsSenders()
+    /**
+     * many-to-one relationship with SmsSenders.
+     */
+    public function sms_sender()
     {
         return $this->belongsTo(SmsSenders::class);
     }

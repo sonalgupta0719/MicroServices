@@ -20,11 +20,8 @@ class CreateSmsTemplateAccountsTable extends Migration
             $table->bigInteger('template_id')->unsigned();
             $table->foreign('template_id')->references('id')->on('sms_templates');
             $table->json('variable_mapping');
-            // $table->unsignedBigInteger('vendor_account_id');
             $table->bigInteger('vendor_account_id')->unsigned();
             $table->foreign('vendor_account_id')->references('id')->on('sms_vendor_accounts');
-            // $table->unsignedBigInteger('sender_id');
-            // $table->bigInteger('sender_id')->unsigned();//added by sonal
             $table->string('sender_id');
             $table->foreign('sender_id')->references('sender_id')->on('sms_senders');
             $table->smallInteger('priority')->default(1);

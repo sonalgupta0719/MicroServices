@@ -10,12 +10,18 @@ class SmsVendors extends Model
 {
     use HasFactory;
 
-    public function SmsVendors(): HasMany
+    /**
+     * one-to-many relationship with SmsVendorAccounts.
+     */
+    public function sms_vendor_account()
     {
         return $this->hasMany(SmsVendorAccounts::class,'vendor_id');
     }
 
-    public function SmsVendorsSmsVendorResponses(): HasMany
+    /**
+     * one-to-many relationship with SmsVendorResponses.
+     */
+    public function sms_vendor_response()
     {
         return $this->hasMany(SmsVendorResponses::class,'vendor_id');
     }

@@ -10,34 +10,50 @@ class Organizations extends Model
 {
     use HasFactory;
 
-    //public function Organizations(): HasMany it is a function name it can be any thing
+    // TODO rename all the relation functions to related tables - done 
+    //name all snake case - done 
+    //remove HasMany - done
+    // make all relation functions to singulars - done
+    //add comments for all functions - done
+    // hasmanythrough functions
 
-    public function OrganizationsProducts(): HasMany
+    
+    /**
+     * Define a one-to-many relationship with products.
+     */
+    public function product()
     {
         return $this->hasMany(Products::class,'organization_id');
     }
 
-    public function OrganizationsUsers(): HasMany
+    /**
+     * Define a one-to-many relationship with users.
+     */
+    public function user()
     {
         return $this->hasMany(Users::class,'organization_id');
     }
-
-    public function OrganizationsSmsVendorsAccountMappings()
-    {
-        return $this->hasMany(SmsVendorsAccountMappings::class);
-    }
     
-    public function OrganizationsSmsTemplates()
+    /**
+     * Define a one-to-many relationship with SmsTemplates.
+     */
+    public function sms_template()
     {
         return $this->hasMany(SmsTemplates::class);
     }
     
-    public function OrganizationsSmsSenders()
+    /**
+     * Define a one-to-many relationship with SmsSenders.
+     */
+    public function sms_sender()
     {
         return $this->hasMany(SmsSenders::class);
     }
     
-    public function OrganizationsSmsRequests()
+    /**
+     * Define a one-to-many relationship with SmsRequests.
+     */
+    public function sms_request()
     {
         return $this->hasMany(SmsRequests::class);
     }

@@ -9,17 +9,26 @@ class SmsLogs extends Model
 {
     use HasFactory;
 
-    public function SmsVendorAccounts()
+    /**
+     * many-to-one relationship with SmsVendorAccounts.
+     */
+    public function sms_vendor_account()
     {
         return $this->belongsTo(SmsVendorAccounts::class);
     }
 
-    public function SmsTemplates()
+    /**
+     * many-to-one relationship with SmsTemplates.
+     */
+    public function sms_template()
     {
         return $this->belongsTo(SmsTemplates::class);
     }
 
-    public function SmsRequests()
+    /**
+     * many-to-one relationship with SmsRequests.
+     */
+    public function sms_request()
     {
         return $this->belongsTo(SmsRequests::class);
     }

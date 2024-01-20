@@ -17,7 +17,6 @@ class CreateSmsVendorAccountsTable extends Migration
 
         Schema::create('sms_vendor_accounts', function (Blueprint $table) {
             $table->id();
-            // $table->unsignedBigInteger('vendor_id');
             $table->bigInteger('vendor_id')->unsigned();
             $table->foreign('vendor_id')->references('id')->on('sms_vendors');
             $table->json('credentials')->comment('Contents should be encrypted');

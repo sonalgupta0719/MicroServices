@@ -10,32 +10,42 @@ class Products extends Model
 {
     use HasFactory;
 
-    public function Organizations()
+    /**
+     * many-to-one relationship with organization.
+     */
+    public function organization()
     {
         return $this->belongsTo(Organizations::class);
     }
 
-    public function ProductsUsers(): HasMany
+    /**
+     * Define a one-to-many relationship with Users.
+     */
+    public function user()
     {
         return $this->hasMany(Users::class,'product_id');
     }
-
-    public function ProductsSmsVendorsAccountMappings(): HasMany
-    {
-        return $this->hasMany(SmsVendorsAccountMappings::class,'product_id');
-    }
     
-    public function ProductsSmsTemplates(): HasMany
+    /**
+     * Define a one-to-many relationship with SmsTemplates.
+     */
+    public function sms_template()
     {
         return $this->hasMany(SmsTemplates::class,'product_id');
     }
     
-    public function ProductsSmsDeadletter(): HasMany
+    /**
+     * Define a one-to-many relationship with SmsDeadletters.
+     */
+    public function sms_deadletter()
     {
-        return $this->hasMany(SmsDeadletter::class,'product_id');
+        return $this->hasMany(SmsDeadletters::class,'product_id');
     }
     
-    public function ProductsSmsRequests(): HasMany
+    /**
+     * Define a one-to-many relationship with SmsRequests.
+     */
+    public function sms_request()
     {
         return $this->hasMany(SmsRequests::class,'product_id');
     }

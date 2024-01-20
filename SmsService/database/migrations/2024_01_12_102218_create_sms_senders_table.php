@@ -17,8 +17,7 @@ class CreateSmsSendersTable extends Migration
 
         Schema::create('sms_senders', function (Blueprint $table) {
             $table->id();
-            $table->string('sender_id');//foreign key not added for sender id
-            // $table->unsignedBigInteger('organization_id');
+            $table->string('sender_id');
             $table->bigInteger('organization_id')->unsigned();
             $table->foreign('organization_id')->references('id')->on('organizations');
             $table->index(['sender_id', 'organization_id']);
